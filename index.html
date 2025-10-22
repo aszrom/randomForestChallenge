@@ -102,32 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="random-forest-challenge---the-power-of-weak-learners" class="level1">
 <h1>🌲 Random Forest Challenge - The Power of Weak Learners</h1>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>📊 Challenge Requirements In <a href="#student-analysis-section">Student Analysis Section</a>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Navigate to the <a href="#student-analysis-section">Student Analysis Section</a> to see the challenge requirements.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>🎯 Note on Python Usage
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You have not been coached through setting up a Python environment. <strong>If using Python</strong> You will need to set up a Python environment and install the necessary packages to run this code - takes about 15 minutes; see <a href="https://quarto.org/docs/projects/virtual-environments.html">https://quarto.org/docs/projects/virtual-environments.html</a>. Alternatively, delete the Python code and only leave the remaining R code that is provided. You can see the executed Python output at my GitHub pages site: <a href="https://flyaflya.github.io/randomForestChallenge/">https://flyaflya.github.io/randomForestChallenge/</a>.</p>
-</div>
-</div>
 <section id="the-problem-can-many-weak-learners-beat-one-strong-learner" class="level2">
 <h2 class="anchored" data-anchor-id="the-problem-can-many-weak-learners-beat-one-strong-learner">The Problem: Can Many Weak Learners Beat One Strong Learner?</h2>
 <p><strong>Core Question:</strong> How does the number of trees in a random forest affect predictive accuracy, and how do random forests compare to simpler approaches like linear regression?</p>
@@ -488,146 +462,29 @@ i Please use `linewidth` instead.</code></pre>
 </div>
 <p><strong>Analysis: Linear Regression vs Random Forest Trade-offs</strong></p>
 <p>The comparison reveals significant insights about when to choose random forests over linear regression:</p>
-<p><strong>Performance Improvements:</strong> - <strong>1 tree to 100 trees</strong>: RMSE improves by 15.9% ($6,530 reduction) - this is substantial and demonstrates the power of ensemble learning - <strong>Linear regression to 100-tree forest</strong>: RMSE improves by 13.1% ($4,596 reduction) - nearly as dramatic as the ensemble effect - <strong>100 trees to 1000 trees</strong>: Only 0.6% improvement ($202 reduction) - diminishing returns in action</p>
+<p><strong>Performance Results:</strong> - <strong>Linear Regression</strong>: 0% (baseline performance) - <strong>Random Forest (1 tree)</strong>: -27.5% (27.5% worse than linear regression) - <strong>Random Forest (100 trees)</strong>: -1.9% (1.9% worse than linear regression) - <strong>Random Forest (1000 trees)</strong>: -0.8% (0.8% worse than linear regression)</p>
+<p><strong>Key Insights:</strong> - <strong>Single tree performs poorly</strong>: The 1-tree random forest is significantly worse than linear regression - <strong>Ensemble effect is real</strong>: Going from 1 tree to 100 trees shows dramatic improvement (from -27.5% to -1.9%) - <strong>Diminishing returns</strong>: 100 trees to 1000 trees shows minimal improvement (from -1.9% to -0.8%) - <strong>Linear regression wins</strong>: The simplest model actually outperforms all random forest variants</p>
 <p><strong>When Random Forests Are Worth the Added Complexity:</strong></p>
 <p><strong>Choose Random Forests When:</strong> - <strong>Non-linear relationships exist</strong> (like real estate prices with complex feature interactions) - <strong>Performance improvement is critical</strong> (13.1% RMSE reduction translates to thousands of dollars in prediction accuracy) - <strong>Feature interactions matter</strong> (zipCode × square footage affects price differently) - <strong>You have sufficient computational resources</strong> for training and prediction</p>
 <p><strong>Stick with Linear Regression When:</strong> - <strong>Linear relationships are sufficient</strong> for your use case - <strong>Interpretability is paramount</strong> (coefficients have clear business meaning) - <strong>Limited computational resources</strong> (linear regression is much faster) - <strong>Small datasets</strong> where overfitting risk is high</p>
 <p><strong>The Interpretability vs Performance Trade-off:</strong></p>
 <p><strong>Linear Regression Advantages:</strong> - <strong>Clear coefficients</strong>: Each feature’s impact is directly interpretable - <strong>Statistical significance</strong>: P-values indicate feature importance - <strong>Fast training and prediction</strong>: Suitable for real-time applications - <strong>Low computational requirements</strong>: Works on any hardware</p>
-<p><strong>Random Forest Advantages:</strong> - <strong>Superior performance</strong>: 13.1% better RMSE in our case - <strong>Handles non-linear relationships</strong>: Captures complex interactions automatically - <strong>Robust to outliers</strong>: Less sensitive to extreme values - <strong>Feature importance</strong>: Still provides interpretability through variable importance</p>
-<p><strong>Practical Recommendation:</strong> For real estate prediction, the <strong>13.1% RMSE improvement</strong> (worth thousands of dollars in prediction accuracy) typically justifies the added complexity of random forests, especially given the clear non-linear relationships in housing markets. However, for applications where interpretability is legally or business-critically required, linear regression remains a valuable baseline.</p>
+<p><strong>Random Forest Advantages:</strong> - <strong>Handles non-linear relationships</strong>: Captures complex interactions automatically - <strong>Robust to outliers</strong>: Less sensitive to extreme values - <strong>Feature importance</strong>: Provides interpretability through variable importance - <strong>Ensemble stability</strong>: Multiple trees reduce variance and overfitting</p>
+<p><strong>Practical Recommendation:</strong> For real estate prediction, Linear Regression outperformed Random Forest (1000 trees) by <strong>0.8%</strong> (with Random Forest showing -0.8% performance). This means the simpler linear regression model actually performed better than the complex random forest approach. This finding suggests that for this dataset, linear regression not only provides better interpretability but also superior predictive performance, making it the clear choice over the more computationally intensive random forest approach.</p>
 </section>
 </section>
-<section id="challenge-requirements" class="level2">
-<h2 class="anchored" data-anchor-id="challenge-requirements">Challenge Requirements 📋</h2>
-<section id="minimum-requirements-for-any-points-on-challenge" class="level3">
-<h3 class="anchored" data-anchor-id="minimum-requirements-for-any-points-on-challenge">Minimum Requirements for Any Points on Challenge</h3>
-<ol type="1">
-<li><p><strong>Create a GitHub Pages Site:</strong> Use the starter repository (see Repository Setup section below) to begin with a working template. The repository includes all the analysis code and visualizations above. Use just one language for the analysis and visualizations, delete the other language and omit the panel tabsets.</p></li>
-<li><p><strong>Add Analysis and Visualizations:</strong> Complete the three analysis sections above with your own code and insights.</p></li>
-<li><p><strong>GitHub Repository:</strong> Use your forked repository (from the starter repository) named “randomForestChallenge” in your GitHub account.</p></li>
-<li><p><strong>GitHub Pages Setup:</strong> The repository should be made the source of your github pages:</p>
+<section id="final-conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="final-conclusion">Final Conclusion</h2>
+<p>Our analysis of the Ames Housing dataset reveals important insights about the practical application of ensemble learning methods in real-world scenarios:</p>
+<p><strong>Key Finding: Theory vs.&nbsp;Reality</strong> While random forests are theoretically expected to perform significantly better with non-linear data types, our analysis demonstrates that this isn’t necessarily always the case. Despite the Ames Housing dataset having clear non-linear characteristics,the performance gains from random forests weren’t as dramatic as typically expected.</p>
+<p><strong>Implications for Data Science Practice:</strong> This finding highlights a crucial principle in machine learning: <strong>empirical testing is more valuable than theoretical assumptions</strong>. Even when data exhibits the characteristics that should favor complex ensemble methods, the actual performance improvements may be modest. This reinforces the importance of:</p>
 <ul>
-<li>Go to your repository settings (click the “Settings” tab in your GitHub repository)</li>
-<li>Scroll down to the “Pages” section in the left sidebar</li>
-<li>Under “Source”, select “Deploy from a branch”</li>
-<li>Choose “main” branch and “/ (root)” folder</li>
-<li>Click “Save”</li>
-<li>Your site will be available at: <code>https://[your-username].github.io/randomForestChallenge/</code></li>
-<li><strong>Note:</strong> It may take a few minutes for the site to become available after enabling Pages</li>
-</ul></li>
-</ol>
-</section>
-</section>
-<section id="getting-started-repository-setup" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started-repository-setup">Getting Started: Repository Setup 🚀</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>📁 Quick Start with Starter Repository
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Step 1:</strong> Fork the starter repository to your github account at <a href="https://github.com/flyaflya/randomForestChallenge.git">https://github.com/flyaflya/randomForestChallenge.git</a></p>
-<p><strong>Step 2:</strong> Clone your fork locally using Cursor (or VS Code)</p>
-<p><strong>Step 3:</strong> You’re ready to start! The repository includes pre-loaded data and a working template with all the analysis above.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>💡 Why Use the Starter Repository?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Benefits:</strong></p>
-<ul>
-<li><strong>Pre-loaded data:</strong> All required data and analysis code is included</li>
-<li><strong>Working template:</strong> Basic Quarto structure (<code>index.qmd</code>) is ready</li>
-<li><strong>No setup errors:</strong> Avoid common data loading issues</li>
-<li><strong>Focus on analysis:</strong> Spend time on the visualizations and analysis, not data preparation</li>
+<li><strong>Testing multiple approaches</strong> rather than assuming superiority based on data characteristics</li>
+<li><strong>Considering computational costs</strong> against performance gains</li>
+<li><strong>Evaluating interpretability trade-offs</strong> in the context of business requirements</li>
+<li><strong>Starting with simpler models</strong> and only adding complexity when justified by significant improvements</li>
 </ul>
-</div>
-</div>
-<section id="getting-started-tips" class="level3">
-<h3 class="anchored" data-anchor-id="getting-started-tips">Getting Started Tips</h3>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>🎯 Navy SEALs Motto
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<blockquote class="blockquote">
-<p>“Slow is Smooth and Smooth is Fast”</p>
-</blockquote>
-<p><em>Take your time to understand the random forest mechanics, plan your approach carefully, and execute with precision. Rushing through this challenge will only lead to errors and confusion.</em></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>💾 Important: Save Your Work Frequently!
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Before you start:</strong> Make sure to commit your work often using the Source Control panel in Cursor (Ctrl+Shift+G or Cmd+Shift+G). This prevents the AI from overwriting your progress and ensures you don’t lose your work.</p>
-<p><strong>Commit after each major step:</strong></p>
-<ul>
-<li>After adding your visualizations</li>
-<li>After adding your analysis</li>
-<li>After rendering to HTML</li>
-<li>Before asking the AI for help with new code</li>
-</ul>
-<p><strong>How to commit:</strong></p>
-<ol type="1">
-<li>Open Source Control panel (Ctrl+Shift+G)</li>
-<li>Stage your changes (+ button)</li>
-<li>Write a descriptive commit message</li>
-<li>Click the checkmark to commit</li>
-</ol>
-<p><em>Remember: Frequent commits are your safety net!</em></p>
-</div>
-</div>
-</section>
-</section>
-<section id="grading-rubric" class="level2">
-<h2 class="anchored" data-anchor-id="grading-rubric">Grading Rubric 🎓</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>📊 What You’re Really Being Graded On
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>This is an investigative report, not a coding exercise.</strong> You’re analyzing random forest models and reporting your findings like a professional analyst would. Think of this as a brief you’d write for a client or manager about the power of ensemble learning and when to use random forests vs simpler approaches.</p>
-<p><strong>What makes a great report:</strong></p>
-<ul>
-<li><strong>Clear narrative:</strong> Tell the story of what you discovered about ensemble learning</li>
-<li><strong>Insightful analysis:</strong> Focus on the most interesting findings about random forest performance</li>
-<li><strong>Professional presentation:</strong> Clean, readable, and engaging</li>
-<li><strong>Concise conclusions:</strong> No AI babble or unnecessary technical jargon</li>
-<li><strong>Human insights:</strong> Your interpretation of what the performance improvements actually mean</li>
-<li><strong>Practical implications:</strong> When random forests are worth the added complexity</li>
-</ul>
-<p><strong>What we’re looking for:</strong> A compelling 2-3 minute read that demonstrates both the power of ensemble learning and the importance of choosing the right tool for the job.</p>
-</div>
-</div>
+<p><strong>Bottom Line:</strong> The 0% RMSE improvement from linear regression over random forests is importent to consider. Even though Random Forests are typically expected to perform better with non-linear data types, such as real estate prices, this data set was a smaller sample size and could not have been non-linear as expected.</p>
 <section id="questions-to-answer-for-75-grade-on-challenge" class="level3">
 <h3 class="anchored" data-anchor-id="questions-to-answer-for-75-grade-on-challenge">Questions to Answer for 75% Grade on Challenge</h3>
 <ol type="1">
@@ -652,49 +509,6 @@ i Please use `linewidth` instead.</code></pre>
 <li><strong>Professional Presentation:</strong> Your analysis should be written in a professional, engaging style that would be appropriate for a business audience. Use clear visualizations and focus on practical insights rather than technical jargon.</li>
 </ol>
 </section>
-</section>
-<section id="submission-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="submission-checklist">Submission Checklist ✅</h2>
-<p><strong>Minimum Requirements (Required for Any Points):</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Forked starter repository from <a href="https://github.com/flyaflya/randomForestChallenge.git">https://github.com/flyaflya/randomForestChallenge.git</a></label></li>
-<li><label><input type="checkbox">Cloned repository locally using Cursor (or VS Code)</label></li>
-<li><label><input type="checkbox">Completed all three analysis sections with visualizations</label></li>
-<li><label><input type="checkbox">Document rendered to HTML successfully</label></li>
-<li><label><input type="checkbox">HTML files uploaded to your forked repository</label></li>
-<li><label><input type="checkbox">GitHub Pages enabled and working</label></li>
-<li><label><input type="checkbox">Site accessible at <code>https://[your-username].github.io/randomForestChallenge/</code></label></li>
-</ul>
-<p><strong>75% Grade Requirements:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Clear analysis of how random forest performance improves with more trees</label></li>
-<li><label><input type="checkbox">Discussion of diminishing returns in ensemble learning</label></li>
-</ul>
-<p><strong>85% Grade Requirements:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Thorough overfitting analysis comparing decision trees vs random forests</label></li>
-<li><label><input type="checkbox">Explanation of mechanisms that prevent overfitting in random forests</label></li>
-</ul>
-<p><strong>95% Grade Requirements:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Complete linear regression comparison with clear table</label></li>
-<li><label><input type="checkbox">Discussion of when random forests are worth the complexity</label></li>
-</ul>
-<p><strong>100% Grade Requirements:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Professional presentation style appropriate for business audience</label></li>
-<li><label><input type="checkbox">Clear, engaging narrative that tells a compelling story</label></li>
-<li><label><input type="checkbox">Practical insights that would help a real data scientist</label></li>
-</ul>
-<p><strong>Report Quality (Critical for Higher Grades):</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Clear, engaging narrative that tells a story</label></li>
-<li><label><input type="checkbox">Focus on the most interesting findings about ensemble learning</label></li>
-<li><label><input type="checkbox">Professional writing style (no AI-generated fluff)</label></li>
-<li><label><input type="checkbox">Concise analysis that gets to the point</label></li>
-<li><label><input type="checkbox">Practical insights that would help a real data scientist</label></li>
-<li><label><input type="checkbox">Well-designed visualizations that support your analysis</label></li>
-</ul>
 </section>
 </section>
 
